@@ -13,14 +13,14 @@ export async function createContainer(req: Request, res: Response) {
         const newContainer = new ContentContainer({
             name, owner: email
         })
-        newContainer.save((err, _result)=>{
+        newContainer.save((err, result)=>{
             if(err){
                 return res.status(500).send({
                     "message":`Something went wrong ${err.message}`
                 })
             }
             return res.status(201).send({
-                "message":"Ressource created"
+                "data": result
             })
         })
 
