@@ -41,7 +41,3 @@ export function connectToDB() {
         return
     }
 }
-
-export function checkAuth(){
-    
-}
