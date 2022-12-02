@@ -22,9 +22,12 @@ export async function createEntity( req: Request, res: Response ){
     try {
         const { decoded, name, fields, container } = req.body
         const { email } = decoded
+        if( await Entity.findOne({ name, owner: email, container }) ){
+            return res.status(409).send({ "message":"An entity with that same name already exists" })
+        }
         if( ! await ContentContainer.findOne({ name: container, owner: email }) ){
             return res.status(404).send({ "message":"Container not found" })
-        }
+        } 
         const newEntity = new Entity({ name, fields, container, owner: email })
         newEntity.save((err, result)=>{
             if(err){
