@@ -2,10 +2,9 @@ import express from "express"
 import bodyParser from "body-parser"
 import cors from "cors"
 
-import auth from "./routes/auth"
-import container from "./routes/container"
-import types from "./routes/types"
-import entity from "./routes/entity"
+import auth from "./routes/v1/auth"
+import container from "./routes/v1/container"
+import entity from "./routes/v1/entity"
 import { connectToDB } from "./utils"
 
 const app = express()
@@ -15,7 +14,6 @@ app.use(bodyParser.json())
 //SECTION Routes
 app.use("/auth", auth) 
 app.use("/container", container) 
-app.use("/types", types)
 app.use("/entity", entity)
 
 const PORT = process.env.PORT || 5000

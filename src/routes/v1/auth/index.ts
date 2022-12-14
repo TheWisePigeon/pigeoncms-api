@@ -1,4 +1,4 @@
-import { register, login } from "../../services/Auth"
+import { register, login } from "../../../services/Auth"
 import { Router } from "express"
 
 const router = Router()
