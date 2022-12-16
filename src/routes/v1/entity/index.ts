@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createEntity, getEntities } from "../../services/Entity"
-import { checkAuth } from "../../middlewares"
+import { createEntity, getEntities } from "../../../services/Entity"
+import { checkAuth } from "../../../middlewares"
 
 const router = Router()
 

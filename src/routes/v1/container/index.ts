@@ -1,5 +1,5 @@
-import { createContainer, getContainer, getContainers, deleteContainer } from "../../services/ContentContainer"
-import { checkAuth } from "../../middlewares"
+import { createContainer, getContainer, getContainers, deleteContainer } from "../../../services/ContentContainer"
+import { checkAuth } from "../../../middlewares"
 import Router from "express"
 
 const router = Router()
