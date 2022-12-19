@@ -3,6 +3,8 @@ import User from "../models/User"
 import { DB_URL, jwtKey, saltRounds } from "../config"
 import bcrypt from "bcrypt"
 import mongoose from "mongoose"
+import { log } from "console"
+
 
 export async function userExists(email: string) {
     return (await User.findOne({
@@ -11,9 +13,9 @@ export async function userExists(email: string) {
 }
 
 export function generateAuthToken(email: string) {
-    return jwt.sign({ email }, jwtKey)
+   return jwt.sign({ email }, jwtKey)
 }
-
+ 
 export function verifyAuthToken(token: string) {
     try {
         return JSON.stringify(jwt.verify(token, jwtKey))
@@ -40,4 +42,9 @@ export function connectToDB() {
         console.log(`Connection to database failed ${error}`)
         return
     }
+}
+
+//Add log type and specific color for each type
+export function Logger(status:String, message: String ){
+    log(`${status}: ${message}`)    
 }
